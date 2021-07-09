@@ -19,7 +19,7 @@ class Qrcode
     private $content='';// 要生成二维码的内容
     private $attr = [];
     private static $instance = null;
-    public function getInstance(){
+    public static function getInstance(){
         if(!self::$instance){
             self::$instance = new self();
         }
