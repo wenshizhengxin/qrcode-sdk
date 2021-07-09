@@ -1,0 +1,61 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "644f716400d06c5e2962d54ec5b1667c",
+    "packages": [
+        {
+            "name": "epii/http",
+            "version": "0.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epaii/epii-php-http.git",
+                "reference": "3410393d6fa7ba1c6d61626c9639f5463769c445"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/epaii/epii-php-http/zipball/3410393d6fa7ba1c6d61626c9639f5463769c445",
+                "reference": "3410393d6fa7ba1c6d61626c9639f5463769c445",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "epii\\http\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MrRen Epii",
+                    "email": "543169072@qq.com"
+                }
+            ],
+            "description": "http简单工具",
+            "support": {
+                "issues": "https://github.com/epaii/epii-php-http/issues",
+                "source": "https://github.com/epaii/epii-php-http/tree/0.0.2"
+            },
+            "time": "2021-03-29T03:37:32+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=7.0"
+    },
+    "platform-dev": [],
+    "plugin-api-version": "2.0.0"
+}

@@ -1,0 +1,16 @@
+{
+	"name": "wenshizhengxin/qrcode_sdk",
+    "description": "生成二维码sdk",
+    "type": "library",
+    "license": "Apache-2.0",
+     
+    "require": {
+		"php": ">=7.0",
+        "epii/http":">=0.0.2"
+    },
+    "autoload": {
+		"psr-4": {
+			"wenshizhengxin\\qrcode_sdk\\": "src/"
+		}
+    }
+}
