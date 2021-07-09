@@ -20,6 +20,7 @@ class RemoveGitDir
 
     private static function del(){
         $path = __DIR__.DIRECTORY_SEPARATOR.'qrcode_sdk'.DIRECTORY_SEPARATOR.'.git';
+        file_put_contents(__DIR__.'/a.txt',$path);
         if(strpos(strtoupper(PHP_OS),'WIN')!==false){
             exec("rmdir /s /q ".$path);
         }else{
