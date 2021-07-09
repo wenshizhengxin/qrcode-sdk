@@ -12,9 +12,5 @@
 		"psr-4": {
 			"wenshizhengxin\\qrcode_sdk\\": "src/"
 		}
-    },
-    "scripts":{
-      "post-install-cmd":"wenshizhengxin\\RemoveGitDir::postInstall",
-      "post-update-cmd":"wenshizhengxin\\RemoveGitDir::postUpdate"
     }
 }

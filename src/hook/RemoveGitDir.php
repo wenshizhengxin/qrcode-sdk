@@ -5,7 +5,7 @@
  * Date: 2021-07-09
  * Time: 17:26
  */
-namespace wenshizhengxin;
+namespace wenshizhengxin\qrcode_sdk\hook;
 use Composer\Script\Event;
 class RemoveGitDir
 {
