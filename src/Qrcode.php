@@ -33,6 +33,15 @@ class Qrcode
         $this->attr['logo'] = $logoUrl;
         return $this;
     }
+
+    public function setWidth($width){
+        $this->attr['width'] = $width;
+        return $this;
+    }
+    public function setHeight($height){
+        $this->attr['height'] = $height;
+        return $this;
+    }
     // style是一些预设好的效果包括前景背景颜色液态圆点等的组合效果
     // 如果设置了style,有单独设置了其它属性，则会覆盖style的设置
     public function setStyle($style){
@@ -65,6 +74,16 @@ class Qrcode
     // 添加文案
     public function setCopywriting($content){
         $this->attr['copywriting'] = $content;
+        return $this;
+    }
+    // 文案字体颜色
+    public function setCopywritingColor($color){
+        $this->attr['copywriting_color'] = $color;
+        return $this;
+    }
+    // 文案的字体
+    public function setCopywritingFont($font){
+        $this->attr['copywriting_font'] = $font;
         return $this;
     }
     // 暂未实现 后期实现了会约定一些常量供选择
@@ -101,7 +120,7 @@ class Qrcode
             'attr'=>json_encode($this->attr)
         ];
         $res = http::post(self::$domain,$para);
-        var_dump($res);
+        return $res;
     }
     public static function init($id,$key){
         self::$appid = $id;
