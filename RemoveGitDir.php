@@ -11,11 +11,13 @@ class RemoveGitDir
 {
     public static function postUpdate(Event $event)
     {
-        self::del();
+        $package = $event->getOperation()->getPackage();
+        file_put_contents(__DIR__.'/aa.txt',$package,FILE_APPEND);
     }
     public static function postInstall(Event $event)
     {
-        self::del();
+        $package = $event->getOperation()->getPackage();
+        file_put_contents(__DIR__.'/aa.txt',$package,FILE_APPEND);
     }
 
     private static function del(){
