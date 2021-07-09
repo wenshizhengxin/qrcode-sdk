@@ -6,18 +6,16 @@
  * Time: 17:26
  */
 namespace wenshizhengxin\qrcode_sdk\hook;
-use Composer\Script\Event;
+
 class RemoveGitDir
 {
-    public static function postUpdate(Event $event)
+    public static function postUpdate()
     {
-        $package = $event->getOperation()->getPackage();
-        file_put_contents(__DIR__.'/aa.txt',$package,FILE_APPEND);
+        self::del();
     }
-    public static function postInstall(Event $event)
+    public static function postInstall()
     {
-        $package = $event->getOperation()->getPackage();
-        file_put_contents(__DIR__.'/aa.txt',$package,FILE_APPEND);
+        self::del();
     }
 
     private static function del(){
