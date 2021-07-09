@@ -16,6 +16,7 @@ class Qrcode
     private static $domain = "http://qrcode.wszx.cc/?app=create@index";
     private static $appid = 0;
     private static $key = '';
+    private $content='';// 要生成二维码的内容
     private $attr = [];
     private static $instance = null;
     public function getInstance(){
@@ -24,8 +25,8 @@ class Qrcode
         }
         return self::$instance;
     }
-    public function setUrl($url){
-        $this->attr['url'] = $url;
+    public function setContent($content){
+        $this->content = $content;
         return $this;
     }
     public function setLogo($logoUrl){
@@ -88,15 +89,25 @@ class Qrcode
         return $this;
     }
 
-    public  function getQrcode(){
-        if(!self::$appid || !self::$key){
+    public function getQrcode(){
+        if(!self::$appid || !self::$key || $this->content){
             return false;
         }
-        $res = http::post(self::$domain,$this->attr);
+        $para = [
+            'app_id'=>self::$appid,
+            'req_time'=>time(),
+            'req_sign'=>self::getSign(self::$appid,self::$key,time()),
+            'content'=>$this->content,
+            'attr'=>json_encode($this->attr)
+        ];
+        $res = http::post(self::$domain,$para);
         var_dump($res);
     }
     public static function init($id,$key){
         self::$appid = $id;
         self::$key = $key;
+    }
+    public static function getSign($app_id,$key,$req_time){
+        return md5(md5($app_id).md5($key).$req_time);
     }
 }
