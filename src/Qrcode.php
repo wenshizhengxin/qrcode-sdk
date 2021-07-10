@@ -109,7 +109,7 @@ class Qrcode
     }
 
     public function getQrcode(){
-        if(!self::$appid || !self::$key || $this->content){
+        if(!self::$appid || !self::$key || !$this->content){
             return false;
         }
         $para = [
