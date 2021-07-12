@@ -14,6 +14,6 @@ use epii\api\result\ApiResult;
 class QrcodeResult extends ApiResult
 {
     public function getQrcodeImg(){
-        return $this->getData('results');
+        return $this->getDataValue('results');
     }
 }
