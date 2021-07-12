@@ -17,7 +17,7 @@ class Qrcode
     private static $appid = 0;
     private static $key = '';
 
-    public static function make($content,QrcodeOptions $options){
+    public static function make($content,$options=[]){
         if(!self::$appid || !self::$key || !$content){
             return false;
         }
@@ -38,7 +38,7 @@ class Qrcode
             'req_sign'=>self::getSign(self::$appid,self::$key,time()),
             'content'=>$content,
             'content_type'=>$content_type,
-            'attr'=>json_encode($options->getOptions())
+            'attr'=>json_encode($options)
         ];
         $res = http::post(self::$domain,$para);
         return $res;
