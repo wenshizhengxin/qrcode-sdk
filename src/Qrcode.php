@@ -31,6 +31,7 @@ class Qrcode
         if(!$content_type){
             return false;
         }
+
         $para = [
             'app_id'=>self::$appid,
             'req_time'=>time(),
