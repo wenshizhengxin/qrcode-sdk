@@ -42,7 +42,7 @@ class Qrcode
             'attr'=>$options===null?json_encode([]):json_encode($options->getOptions())
         ];
         $res = http::post(self::$domain,$para);
-        return new ApiResult($res);
+        return new QrcodeResult($res);
     }
     public static function init($id,$key){
         self::$appid = $id;
