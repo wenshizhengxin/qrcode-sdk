@@ -17,7 +17,7 @@ class Qrcode
     private static $appid = 0;
     private static $key = '';
 
-    public function make($content,QrcodeOptions $options){
+    public static function make($content,QrcodeOptions $options){
         if(!self::$appid || !self::$key || !$content){
             return false;
         }
