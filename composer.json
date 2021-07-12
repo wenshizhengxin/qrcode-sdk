@@ -6,7 +6,8 @@
      
     "require": {
 		"php": ">=7.0",
-        "epii/http":">=0.0.2"
+        "epii/http":">=0.0.2",
+        "epii/api-result":"0.0.5"
     },
     "autoload": {
 		"psr-4": {

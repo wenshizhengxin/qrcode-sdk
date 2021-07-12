@@ -9,6 +9,7 @@
 namespace wenshizhengxin\qrcode_sdk;
 
 
+use epii\api\result\ApiResult;
 use epii\http\http;
 
 class Qrcode
@@ -17,7 +18,7 @@ class Qrcode
     private static $appid = 0;
     private static $key = '';
 
-    public static function make($content,$options=[]){
+    public static function make($content,QrcodeOptions $options=null){
         if(!self::$appid || !self::$key || !$content){
             return false;
         }
@@ -38,10 +39,10 @@ class Qrcode
             'req_sign'=>self::getSign(self::$appid,self::$key,time()),
             'content'=>$content,
             'content_type'=>$content_type,
-            'attr'=>json_encode($options)
+            'attr'=>$options===null?json_encode([]):json_encode($options->getOptions())
         ];
         $res = http::post(self::$domain,$para);
-        return $res;
+        return new ApiResult($res);
     }
     public static function init($id,$key){
         self::$appid = $id;

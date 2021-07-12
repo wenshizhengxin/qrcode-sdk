@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "644f716400d06c5e2962d54ec5b1667c",
+    "content-hash": "61203ca7da3ae72062c1235ba55a9d67",
     "packages": [
+        {
+            "name": "epii/api-result",
+            "version": "0.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/epaii/epii-php-api-result.git",
+                "reference": "fd635b0e41b544228ecceaa067b6dca8d0ce2ceb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/epaii/epii-php-api-result/zipball/fd635b0e41b544228ecceaa067b6dca8d0ce2ceb",
+                "reference": "fd635b0e41b544228ecceaa067b6dca8d0ce2ceb",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "epii\\api\\result\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "MrRen Epii",
+                    "email": "543169072@qq.com"
+                }
+            ],
+            "description": "标准api返回数据类。",
+            "support": {
+                "issues": "https://github.com/epaii/epii-php-api-result/issues",
+                "source": "https://github.com/epaii/epii-php-api-result/tree/master"
+            },
+            "time": "2019-03-21T06:21:15+00:00"
+        },
         {
             "name": "epii/http",
             "version": "0.0.2",
