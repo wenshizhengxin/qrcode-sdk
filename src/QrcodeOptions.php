@@ -8,9 +8,20 @@
 
 namespace wenshizhengxin\qrcode_sdk;
 
+use wenshizhengxin\qrcode_sdk\Color\RGBA;
 
 class QrcodeOptions
 {
+    const RADIUS_LEVEL_1 = 1;
+    const RADIUS_LEVEL_2 = 2;
+    const RADIUS_LEVEL_3 = 3;
+    const RADIUS_LEVEL_4 = 4;
+    const RADIUS_LEVEL_5 = 5;
+    const RADIUS_LEVEL_6 = 6;
+    const RADIUS_LEVEL_7 = 7;
+    const RADIUS_LEVEL_8 = 8;
+    const RADIUS_LEVEL_9 = 9;
+    const RADIUS_LEVEL_10 = 10;
     private $options = [];
     public function setLogo($logoUrl){
         $this->options['logo'] = $logoUrl;
@@ -18,38 +29,59 @@ class QrcodeOptions
     }
 
     //matrixPointSize
-    public function setSize($width){
-        $this->options['size'] = $width;
+    public function setSize($size){
+        $this->options['size'] = $size;
         return $this;
     }
-    // 请注意 下面的属性都未实现
+
     // style是一些预设好的效果包括前景背景颜色液态圆点等的组合效果
-    // 如果设置了style,有单独设置了其它属性，则会覆盖style的设置
+    // 如果设置了style,又单独设置了其它属性，则会覆盖style的设置
+    // 暂未实现
     public function setStyle($style){
         // 暂未实现 后期实现了 约定一些常量供选择
         $this->options['style'] = $style;
         return $this;
     }
 
-    // 前景色
-    public function setFroegroundColor($color){
-        // $color是数组则是渐变
-        $this->options['foreground_color'] = $color;
-        return $this;
-    }
-    // 背景色
-    public function setBackgroundColor($color){
-        // $color是数组则是渐变
-        $this->options['background_color'] = $color;
-        return $this;
-    }
+    // $foreground 指黑白码中的黑色
+    // $background指黑白码中的白色
+    // 如果想用渐变色 那么就传数组，传多个颜色，
+    // 实现原理是用渐变色先创建一张图，再把二维码前景或背景变透明，然后与渐变图合成
+    //
+    public function setForegroundColor(RGBA $foreground_color){
 
+        $this->options['color']['foreground_color'] = $foreground_color;
+    }
+    public function setBackgroundColor(RGBA $background_color){
+        $this->options['color']['background_color'] = $background_color;
+    }
+    // 此选项会导致 foreground_color、 background_color 失效
+    // 使用gif动图做前景图片会更炫
     public function setForegroundImg($foreground){
         $this->options['foreground_img'] = $foreground;
         return $this;
     }
+    // 此选项会导致 background_color 失效，不过暂时未实现
     public function setBackgroundImg($background){
         $this->options['background_img'] = $background;
+        return $this;
+    }
+    // 设置圆点化半径 此设置与setLiquidRadius互斥
+    // 半径值分十个等级 请取RADIUS_LEVEL_x常量
+    public function setDotRadius($radius){
+        if(isset($this->options['liquid_radius'])){
+            unset($this->options['liquid_radius']);
+        }
+        $this->options['dot_radius'] = $radius;
+        return $this;
+    }
+    // 设置液态化半径 此设置与setDotRadius互斥
+    // 半径值分十个等级 请取RADIUS_LEVEL_x常量
+    public function setLiquidRadius($radius){
+        if(isset($this->options['dot_radius'])){
+            unset($this->options['dot_radius']);
+        }
+        $this->options['liquid_radius'] = $radius;
         return $this;
     }
     // 添加文案
