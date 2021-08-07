@@ -121,6 +121,16 @@ class QrcodeOptions
         return $this;
     }
     public function getOptions(){
+        if(isset($this->options['color'])){
+            if(isset($this->options['color']['background_color'])){
+                $bgc = $this->options['color']['background_color'];
+                $this->options['color']['background_color']=$bgc->getRgb();
+            }
+            if(isset($this->options['color']['foreground_color'])){
+                $fgc = $this->options['color']['foreground_color'];
+                $this->options['color']['foreground_color']=$fgc->getRgb();
+            }
+        }
         return $this->options;
     }
 }
